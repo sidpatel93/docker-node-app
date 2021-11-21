@@ -26,7 +26,7 @@ app.use(sessions({
     resave: false,
     saveUninitialize: false,
     httpOnly: true,
-    maxAge: 15000
+    maxAge: 1800000
   }
 }))
 

@@ -2,18 +2,18 @@ const User = require('../models/userModel')
 const bcrypt = require('bcryptjs')
 
 
-exports.signUp = async (req, res) => {
+exports.signup = async (req, res, next) => {
   const {username, password} = req.body
   
 
   try {
-    const hashedPassword = await bcrypt.hash(password, 8)
+    const hashedPassword = await bcrypt.hash(password, 12)
     const newUser = await User.create({
       username,
       password: hashedPassword
     });
-    req.session.user = user
-    res.status(201).json({
+    req.session.user = newUser
+    res.status(200).json({
       status: "success",
       data: {
         user: newUser
@@ -26,7 +26,7 @@ exports.signUp = async (req, res) => {
   }
 }
 
-exports.login = async (req, res) => {
+exports.login = async (req, res, next) => {
   const {username, password} = req.body
 
   try {
