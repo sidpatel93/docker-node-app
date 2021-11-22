@@ -16,7 +16,8 @@ services:
       - SESSION_SECRET=${SESSION_SECRET}
     deploy:
       replicas: 6
-      restart_policy: any
+      restart_policy:
+        condition: any
       update_config:
         parallelism: 2
         delay: 15s
