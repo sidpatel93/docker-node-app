@@ -15,11 +15,11 @@ services:
       - MONGO_PASSWORD=${MONGO_PASSWORD}
       - SESSION_SECRET=${SESSION_SECRET}
     deploy:
-      replicas: 6
+      replicas: 3
       restart_policy:
         condition: any
       update_config:
-        parallelism: 2
+        parallelism: 1
         delay: 15s
 
     command: node index.js
