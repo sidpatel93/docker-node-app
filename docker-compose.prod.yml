@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 services:
   nginx:
@@ -14,6 +14,13 @@ services:
       - MONGO_USER=${MONGO_USER}
       - MONGO_PASSWORD=${MONGO_PASSWORD}
       - SESSION_SECRET=${SESSION_SECRET}
+    deploy:
+      replicas: 6
+      restart_policy: any
+      update_config:
+        parallelism: 2
+        delay: 15s
+
     command: node index.js
 
   mongo:
