@@ -4,6 +4,7 @@ services:
 
   node-app:
     build: .
+    image: sidpatel93/node-app-test
     environment:
       - PORT=3000 
     depends_on:
