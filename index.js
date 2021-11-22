@@ -44,7 +44,7 @@ mongoose.connect(mongoURL)
 app.get("/api/v1", (req,res)=>{
   
   console.log("it ran")
-  res.send("<h2>Hello there!!!</h2>");
+  res.send("<h2>Hello there, this is updated page !</h2>");
 })
 
 //This will redirect the requres to postRoute if the path is /api/v1/posts
